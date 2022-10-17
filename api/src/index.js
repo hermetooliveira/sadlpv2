@@ -18,10 +18,12 @@ app.get('/veiculos', function(req,res) {
             throw error
         };
 
-        res.send(results.map(item => ({proprietario: item.proprietario, placa: item.placa, chassi: item.chassi}
+        res.send(results.map(item => ({proprietario: item.proprietario, placa: item.placa, chassi: item.chassi, situacao: item.situacao}
             )));
     });
-});
+}); 
+
+
 
 app.listen(9001, '0.0.0.0', function() {
     console.log('Listening on port 9001')
