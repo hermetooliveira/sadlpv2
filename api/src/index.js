@@ -13,15 +13,24 @@ const connection = mysql.createConnection({
 connection.connect();
 
 app.get('/veiculos', function(req,res) {
-    connection.query('SELECT * FROM veiculos', function(error, results){
+    connection.query('SELECT * FROM veiculos WHERE placa="PNM9200"', function(error, results){
         if(error) {
             throw error
         };
 
         res.send(results.map(item => ({proprietario: item.proprietario, placa: item.placa, chassi: item.chassi, situacao: item.situacao}
+        
             )));
+        
+        var ocorrencia = results[0].situacao    
+
+        console.log(ocorrencia)    
     });
 }); 
+
+console.log('olá mundo')
+
+
 
 
 
