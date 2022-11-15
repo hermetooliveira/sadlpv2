@@ -17,7 +17,6 @@ const connection = mysql.createConnection({
 connection.connect();
 
 
-
 app.get('/veiculos', function(req,res) {
     var placa = req.body.placa
     placa = '"'+placa+'"' 
@@ -27,7 +26,7 @@ app.get('/veiculos', function(req,res) {
             throw error
         };
 
-        res.send(results.map(item => ({proprietario: item.proprietario, placa: item.placa, chassi: item.chassi, situacao: item.situacao}
+        res.send(results.map(item => ({proprietario: item.proprietario, placa: item.placa, chassi: item.chassi, situacao: item.situacao, marca_modelo_cor: item.marca_modelo_cor}
         
             )));
         //var proprietario = results[0].proprietario
